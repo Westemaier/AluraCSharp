@@ -14,9 +14,9 @@ namespace _06_ByteBank
 
 
 
-            conta.saldo = -10;
+            conta.DefinirSaldo (-10);
 
-            Console.WriteLine(conta.saldo);
+            Console.WriteLine(conta.ObterSaldo());
 
 
             Console.ReadLine();

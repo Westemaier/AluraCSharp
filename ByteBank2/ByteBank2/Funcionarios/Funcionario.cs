@@ -6,27 +6,41 @@ using System.Threading.Tasks;
 
 namespace ByteBank2.Funcionarios
 {
-   public class Funcionario
+    public abstract class Funcionario
     {
-        // 0 - funcionario
-        // 1 - diretor
-        // 2 - designer
-        // 3 - Gerente de conta corrente
-        // 4 - Coordenador
-        // N - ...
-
-
-
-        private int _tipo;
+        public static int TotalDeFuncionarios { get; private set; }
 
         public string Nome { get; set; }
-        public string CPF { get; set; }
-        public double Salario { get; set; }
+        public string CPF { get; private set; }
+        public double Salario { get; protected set; }
 
-
-        public double GetBoficacao()
+        public Funcionario(double salario, string cpf)
         {
-            return Salario * 0.10;
+            Console.WriteLine("Criando FUNCIONARIO");
+
+            CPF = cpf;
+            Salario = salario;
+
+            TotalDeFuncionarios++;
+        }
+
+        public abstract void AumentarSalario();
+
+        public abstract double GetBonificacao();
+
+        public static implicit operator Funcionario(Designer v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static implicit operator Funcionario(Auxiliar v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static implicit operator Funcionario(GerenteDeConta v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

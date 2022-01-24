@@ -1,0 +1,5 @@
+﻿namespace ByteBank
+{
+    class Program
+}
+

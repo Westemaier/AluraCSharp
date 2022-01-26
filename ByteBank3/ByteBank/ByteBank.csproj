@@ -45,6 +45,8 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="ContaCorrente.cs" />
     <Compile Include="ContaCorrenteBase.cs" />
+    <Compile Include="IOExcepption.cs" />
+    <Compile Include="LeitorDeArquivos.cs" />
     <Compile Include="OperacaoFinanceiraException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

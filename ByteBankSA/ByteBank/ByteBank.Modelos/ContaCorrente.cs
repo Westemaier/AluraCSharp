@@ -1,22 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ByteBank.Modelos
 {
     public class ContaCorrente
     {
         private static int TaxaOperacao;
-
         public static int TotalDeContasCriadas { get; private set; }
-
         public Cliente Titular { get; set; }
-
         public int ContadorSaquesNaoPermitidos { get; private set; }
         public int ContadorTransferenciasNaoPermitidas { get; private set; }
-
         public int Numero { get; }
         public int Agencia { get; }
 

@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C2175F0D-7024-465E-947F-C0FB51887A9C}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ByteBank.Modelos</RootNamespace>
-    <AssemblyName>ByteBank.Modelos</AssemblyName>
+    <ProjectGuid>{AFE0377F-97E1-40C8-A3F9-DE691865E54B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ByteBank.SistemaInterno</RootNamespace>
+    <AssemblyName>ByteBank.SistemaInterno</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -20,9 +22,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\ByteBank.Modelos.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ByteBank.Modelos">
+      <HintPath>..\..\..\..\..\..\BibliotecaTestAlura\ByteBank.Modelos.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,21 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutenticacaoHelper.cs" />
-    <Compile Include="Cliente.cs" />
-    <Compile Include="ContaCorrente.cs" />
-    <Compile Include="Funcionarios\Auxiliar.cs" />
-    <Compile Include="Funcionarios\Desenvolvedor.cs" />
-    <Compile Include="Funcionarios\Designer.cs" />
-    <Compile Include="Funcionarios\Funcionario.cs" />
-    <Compile Include="Funcionarios\FuncionarioAutenticavel.cs" />
-    <Compile Include="Funcionarios\GerenteDeConta.cs" />
-    <Compile Include="GerenciadorBonificacao.cs" />
-    <Compile Include="IAutenticavel.cs" />
-    <Compile Include="OperacaoFinanceiraException.cs" />
-    <Compile Include="ParceiroComercial.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaldoInsuficienteException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

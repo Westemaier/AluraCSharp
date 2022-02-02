@@ -9,7 +9,9 @@ namespace ByteBank.SistemaAgencia
         {
             //pagina?argumentos
             //012345678
-
+            string teste2 = "PALAVRA";
+            Console.WriteLine(teste2.IndexOf("Ra"));
+            Console.ReadLine();
 
 
             string urlParametros = "http://bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";

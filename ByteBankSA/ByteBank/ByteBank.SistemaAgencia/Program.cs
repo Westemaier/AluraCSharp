@@ -10,8 +10,8 @@ namespace ByteBank.SistemaAgencia
         {
 
 
-            string padrao = "[0-9]{4}[-][0-9]{4}";
-            string textoDeTeste = "Meu nome é Luan, me ligue em 9940-0813";
+            string padrao = "[0-9]{4,5}-?[0-9]{4,5}";
+            string textoDeTeste = "Meu nome é Luan, me ligue em 99940-0813";
 
             Match resultado = Regex.Match(textoDeTeste, padrao);
             Console.WriteLine(resultado.Value);

@@ -7,19 +7,28 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
+
+            string urlTeste = "https://bytebank.com/cambio";
+            int indiceByteBank = urlTeste.IndexOf("https://bytebank.com");
+
+            Console.WriteLine(urlTeste.StartsWith("https://bytebank.com"));   //Starts = começa com string 
+            Console.WriteLine(urlTeste.EndsWith("cambio")); //Ends = Termina com outra string
+
+            Console.WriteLine(urlTeste.Contains("bytebank")); // Contains tem a mesma logica que StartsWith, EndsWith.
+            
+            
+            
+            Console.ReadLine();
             //pagina?argumentos
             //012345678
-
             string urlParametros = "http://bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
             ExtratorValordeArgumentosURL extratorDeValores = new ExtratorValordeArgumentosURL(urlParametros);
             string valor = extratorDeValores.GetValor("moedaDestino");
             Console.WriteLine("Valor de moedaDestino: " + valor);
             string valormoedaOrigem = extratorDeValores.GetValor("moedaOrigem");
             Console.WriteLine("Valor de moedaOrigem: " + valormoedaOrigem);
-
             Console.WriteLine(extratorDeValores.GetValor("VALOR"));
             Console.ReadLine();
-
             //TESTANDO TOLOWER
             string mensagemOrigem = "PALAVRA";
             string termoBusca = "ra";
@@ -29,18 +38,14 @@ namespace ByteBank.SistemaAgencia
             Console.WriteLine(termoBusca);
             termoBusca = termoBusca.Replace('a', 'A');
             Console.WriteLine(termoBusca);
-
             string teste2 = "PALAVRA";
             Console.WriteLine(mensagemOrigem.IndexOf(termoBusca));
             Console.ReadLine();
-
-
             //TESTANDO O METODO REMOVE
             string testeRemocao = "primeiraParte&parteParaRemover";
             int indiceEComercial = testeRemocao.IndexOf('&');
             Console.WriteLine(testeRemocao.Remove(indiceEComercial, 4));
             Console.ReadLine();
-
             string palavra = "pagina?moedaOrigem=real&moedaDestino=dolar";
             string nomeArgumento = "moedaDestino=";
             int indice = palavra.IndexOf(nomeArgumento);

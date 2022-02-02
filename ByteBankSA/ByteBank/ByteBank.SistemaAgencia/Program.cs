@@ -1,4 +1,5 @@
 ﻿using ByteBank.Modelos;
+using ByteBank.Modelos.Funcionarios;
 using Humanizer;
 using System;
 using System.Text.RegularExpressions;
@@ -16,9 +17,11 @@ namespace ByteBank.SistemaAgencia
 
 
             object conta = new ContaCorrente(456, 687876);
-            Console.WriteLine(conta);
-            
+            object desenvolvedor = new Desenvolvedor ("456454");
 
+            string contaToString = conta.ToString();
+            Console.WriteLine("Resultado " + contaToString);
+            Console.WriteLine(conta);
             Console.ReadLine();
         }
 

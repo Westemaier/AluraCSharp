@@ -1,4 +1,5 @@
-﻿using Humanizer;
+﻿using ByteBank.Modelos;
+using Humanizer;
 using System;
 using System.Text.RegularExpressions;
 
@@ -8,29 +9,31 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Olá, mundo!");
+            Console.WriteLine(123);
+            Console.WriteLine(10.5);
+            Console.WriteLine(true);
 
 
+            object conta = new ContaCorrente(456, 687876);
+            Console.WriteLine(conta);
+            
+
+            Console.ReadLine();
+        }
+
+        static void testaString()
+        {
             string padrao = "[0-9]{4,5}-?[0-9]{4,5}";
             string textoDeTeste = "Meu nome é Luan, me ligue em 99940-0813";
-
             Match resultado = Regex.Match(textoDeTeste, padrao);
             Console.WriteLine(resultado.Value);
             Console.ReadLine();
-            
-
-
-
-
             string urlTeste = "https://bytebank.com/cambio";
             int indiceByteBank = urlTeste.IndexOf("https://bytebank.com");
-
             Console.WriteLine(urlTeste.StartsWith("https://bytebank.com"));   //Starts = começa com string 
             Console.WriteLine(urlTeste.EndsWith("cambio")); //Ends = Termina com outra string
-
-            Console.WriteLine(urlTeste.Contains("bytebank")); // Contains tem a mesma logica que StartsWith, EndsWith.
-            
-            
-            
+            Console.WriteLine(urlTeste.Contains("bytebank")); // Contains tem a mesma logica que StartsWith, EndsWith.                              
             Console.ReadLine();
             //pagina?argumentos
             //012345678
@@ -81,11 +84,11 @@ namespace ByteBank.SistemaAgencia
             Console.WriteLine(indiceInterrogacao);
             Console.WriteLine(url);
             string argumentos = url.Substring(indiceInterrogacao + 1);
-            Console.WriteLine(argumentos);     
+            Console.WriteLine(argumentos);
             Console.ReadLine();
         }
-        
     }
+
 
 
 

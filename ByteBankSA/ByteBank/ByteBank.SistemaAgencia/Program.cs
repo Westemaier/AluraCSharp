@@ -10,20 +10,49 @@ namespace ByteBank.SistemaAgencia
     {       
         static void Main(string[] args)
         {
-            ContaCorrente[] contas = new ContaCorrente[] 
-            {
+            ListaDeContaCorrente lista = new ListaDeContaCorrente();
+            ContaCorrente contaDoLuan = new ContaCorrente(546, 5674976);
+            
+            lista.Adicionar(contaDoLuan);
+
+            lista.Adicionar(new ContaCorrente(874, 5679787));
+            lista.Adicionar(new ContaCorrente(874, 5679787));
+            lista.Adicionar(new ContaCorrente(874, 5679787));
+            lista.Adicionar(new ContaCorrente(874, 5679787));
+            lista.Adicionar(new ContaCorrente(874, 5679787));
+            lista.Adicionar(new ContaCorrente(874, 5679787));
+            lista.Adicionar(new ContaCorrente(874, 5679787));
+            lista.Adicionar(new ContaCorrente(874, 5679787));
+            lista.Adicionar(new ContaCorrente(874, 5679787));
+            lista.Adicionar(new ContaCorrente(874, 5679787));
+            lista.Adicionar(new ContaCorrente(874, 5679787));
+
+
+            lista.Remover(contaDoLuan);
+
+            Console.ReadLine();
+        }
+       
+        
+        
+        
+        
+        
+        
+        static void testaArrayDeContaCorrente()
+    {
+        ContaCorrente[] contas = new ContaCorrente[]
+        {
                 new ContaCorrente(874, 4579787),
                 new ContaCorrente(874, 4456668),
                 new ContaCorrente(874, 7781438)
-            };               
+        };
             for (int indice = 0; indice < contas.Length; indice++)
             {
                 ContaCorrente contaAtual = contas[indice];
                 Console.WriteLine($"conta {indice} {contaAtual.Numero}");
             }
-            Console.ReadLine();
         }
-
         static void testaArrayInt()
         {
             // ARRAY de inteiros com 5 posições!

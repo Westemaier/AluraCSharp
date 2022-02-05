@@ -1,5 +1,4 @@
-﻿using ByteBank.Modelos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,16 +6,11 @@ using System.Threading.Tasks;
 
 namespace ByteBank.SistemaAgencia
 {
-    // [item][item][item][item][item]
-    //                                ^
-    //                                 `- _proximaPosicao
-
-
-    public class ListaDeContaCorrente
+    public class Lista<T>
     {
-        private ContaCorrente[] _itens;
+        private T[] _itens;
         private int _proximaPosicao;
-        
+
         public int Tamanho
         {
             get
@@ -25,9 +19,9 @@ namespace ByteBank.SistemaAgencia
             }
         }
 
-        public ListaDeContaCorrente(int capacidadeInicial = 5)
+        public Lista(int capacidadeInicial = 5)
         {
-            _itens = new ContaCorrente[capacidadeInicial];
+            _itens = new T[capacidadeInicial];
             _proximaPosicao = 0;
         }
 
@@ -36,7 +30,7 @@ namespace ByteBank.SistemaAgencia
 
         }
 
-        public void Adicionar(ContaCorrente item)
+        public void Adicionar(T item)
         {
             VerificarCapacidade(_proximaPosicao + 1);
 
@@ -45,22 +39,22 @@ namespace ByteBank.SistemaAgencia
             _itens[_proximaPosicao] = item;
             _proximaPosicao++;
         }
-        
-        public void AdicionarVarios(params ContaCorrente[] itens)
+
+        public void AdicionarVarios(params T[] itens)
         {
-            foreach(ContaCorrente conta in itens)
+            foreach (T item in itens)
             {
-                Adicionar(conta);
+                Adicionar(item);
             }
         }
 
-        public void Remover(ContaCorrente item)
+        public void Remover(T item)
         {
             int indiceItem = -1;
 
-            for(int i = 0; i < _proximaPosicao; i++)
+            for (int i = 0; i < _proximaPosicao; i++)
             {
-                ContaCorrente itemAtual = _itens[i];
+                T itemAtual = _itens[i];
 
                 if (itemAtual.Equals(item))
                 {
@@ -75,18 +69,18 @@ namespace ByteBank.SistemaAgencia
             //                       ^
             //                        ` _proximaPosicao
 
-            for (int i = indiceItem; i < _proximaPosicao-1; i++)
+            for (int i = indiceItem; i < _proximaPosicao - 1; i++)
             {
                 _itens[i] = _itens[i + 1];
             }
 
             _proximaPosicao--;
-            _itens[_proximaPosicao] = null;
+            //_itens[_proximaPosicao] = null;
         }
 
-        public ContaCorrente GetItemNoIndice(int indice)
+        public T GetItemNoIndice(int indice)
         {
-            if(indice < 0 || indice >= _proximaPosicao)
+            if (indice < 0 || indice >= _proximaPosicao)
             {
                 throw new ArgumentOutOfRangeException(nameof(indice));
             }
@@ -96,7 +90,7 @@ namespace ByteBank.SistemaAgencia
 
         private void VerificarCapacidade(int tamanhoNecessario)
         {
-            if(_itens.Length >= tamanhoNecessario)
+            if (_itens.Length >= tamanhoNecessario)
             {
                 return;
             }
@@ -109,9 +103,9 @@ namespace ByteBank.SistemaAgencia
 
             // Console.WriteLine("Aumentando capacidade da lista!");
 
-            ContaCorrente[] novoArray = new ContaCorrente[novoTamanho];
+            T[] novoArray = new T[novoTamanho];
 
-            for(int indice = 0; indice < _itens.Length; indice++)
+            for (int indice = 0; indice < _itens.Length; indice++)
             {
                 novoArray[indice] = _itens[indice];
                 // Console.WriteLine(".");
@@ -119,14 +113,13 @@ namespace ByteBank.SistemaAgencia
 
             _itens = novoArray;
         }
-        
-        public ContaCorrente this[int indice]
+
+        public T this[int indice]
         {
             get
             {
                 return GetItemNoIndice(indice);
             }
         }
-
     }
 }

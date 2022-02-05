@@ -11,10 +11,8 @@ namespace ByteBank.SistemaAgencia
         static void Main(string[] args)
         {
             ListaDeContaCorrente lista = new ListaDeContaCorrente();
-            ContaCorrente contaDoLuan = new ContaCorrente(546, 5674976);
-            
+            ContaCorrente contaDoLuan = new ContaCorrente(666, 6666666);          
             lista.Adicionar(contaDoLuan);
-
             lista.Adicionar(new ContaCorrente(874, 5679787));
             lista.Adicionar(new ContaCorrente(874, 5679787));
             lista.Adicionar(new ContaCorrente(874, 5679787));
@@ -26,19 +24,12 @@ namespace ByteBank.SistemaAgencia
             lista.Adicionar(new ContaCorrente(874, 5679787));
             lista.Adicionar(new ContaCorrente(874, 5679787));
             lista.Adicionar(new ContaCorrente(874, 5679787));
-
-
+            lista.EscreverListaNaTela();
             lista.Remover(contaDoLuan);
-
+            Console.WriteLine("Apos remover o item ");
+            lista.EscreverListaNaTela();
             Console.ReadLine();
-        }
-       
-        
-        
-        
-        
-        
-        
+        }                     
         static void testaArrayDeContaCorrente()
     {
         ContaCorrente[] contas = new ContaCorrente[]
@@ -79,7 +70,6 @@ namespace ByteBank.SistemaAgencia
             int media = acumulador / idades.Length;
             Console.WriteLine($"Média de idade = {media}");
         }
-
         static void testaString()
         {
             string padrao = "[0-9]{4,5}-?[0-9]{4,5}";
@@ -146,8 +136,4 @@ namespace ByteBank.SistemaAgencia
             Console.ReadLine();
         }
     }
-
-
-
-
 }

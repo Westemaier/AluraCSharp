@@ -10,26 +10,32 @@ namespace ByteBank.SistemaAgencia
     {       
         static void Main(string[] args)
         {
-            ListaDeContaCorrente lista = new ListaDeContaCorrente();
-            ContaCorrente contaDoLuan = new ContaCorrente(666, 6666666);          
-            lista.Adicionar(contaDoLuan);
-            lista.Adicionar(new ContaCorrente(874, 5679787));
-            lista.Adicionar(new ContaCorrente(874, 5679787));
-            lista.Adicionar(new ContaCorrente(874, 5679787));
-            lista.Adicionar(new ContaCorrente(874, 5679787));
-            lista.Adicionar(new ContaCorrente(874, 5679787));
-            lista.Adicionar(new ContaCorrente(874, 5679787));
-            lista.Adicionar(new ContaCorrente(874, 5679787));
-            lista.Adicionar(new ContaCorrente(874, 5679787));
-            lista.Adicionar(new ContaCorrente(874, 5679787));
-            lista.Adicionar(new ContaCorrente(874, 5679787));
-            lista.Adicionar(new ContaCorrente(874, 5679787));
-            lista.EscreverListaNaTela();
-            lista.Remover(contaDoLuan);
-            Console.WriteLine("Apos remover o item ");
-            lista.EscreverListaNaTela();
+            
+           // Console.WriteLine(SomarVarios(1, 2, 3, 5, 56465, 45));
+           // Console.WriteLine(SomarVarios(1, 2, 45));                        
             Console.ReadLine();
         }                     
+        static void testaListaDeContaCorrente()
+        {
+            ListaDeContaCorrente lista = new ListaDeContaCorrente();
+            ContaCorrente contaDoLuan = new ContaCorrente(666, 6666666);
+            lista.Adicionar(contaDoLuan);
+            ContaCorrente[] contas = new ContaCorrente[]
+            {
+                contaDoLuan,
+                new ContaCorrente(874, 5679787),
+                new ContaCorrente(874, 5679787)
+            };
+
+            lista.AdicionarVarios(contas);
+
+
+            for (int i = 0; i < lista.Tamanho; i++)
+            {
+                ContaCorrente itemAtual = lista.GetItemNoIndice(i);
+                Console.WriteLine($"Item na posição {i} = Conta {itemAtual.Numero}/{itemAtual.Agencia}");
+            }
+        }
         static void testaArrayDeContaCorrente()
     {
         ContaCorrente[] contas = new ContaCorrente[]

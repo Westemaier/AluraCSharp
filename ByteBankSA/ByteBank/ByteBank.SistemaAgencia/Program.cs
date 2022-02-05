@@ -10,42 +10,16 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Olá, mundo!");
-            Console.WriteLine(123);
-            Console.WriteLine(10.5);
-            Console.WriteLine(true);
+            // ARRAY de inteiros com 5 posições!
 
+            int[] idades = new int[5];
+            idades[0] = 15;
+            idades[1] = 28;
+            idades[2] = 35;
+            idades[3] = 50;
+            idades[4] = 28;
 
-            object conta = new ContaCorrente(456, 687876);
-            object desenvolvedor = new Desenvolvedor ("456454");
-
-            string contaToString = conta.ToString();
-            Console.WriteLine("Resultado " + contaToString);
-            Console.WriteLine(conta);
-
-
-
-            Cliente carlos_1 = new Cliente();
-            carlos_1.Nome = "Carlos";
-            carlos_1.CPF = "458.663.120-03";
-            carlos_1.Profissao = "Designer";
-            
-            
-            Cliente carlos_2 = new Cliente();
-            carlos_2.Nome = "Carlos";
-            carlos_2.CPF = "458.663.120-03";
-            carlos_2.Profissao = "Designer";
-
-            if (carlos_1.Equals(carlos_2))
-            {
-                Console.WriteLine("São iguais!");
-            }
-            else
-            {
-                Console.WriteLine("Não iguais!");
-            }
-
-
+            Console.WriteLine(idades[4]);
 
             Console.ReadLine();
         }

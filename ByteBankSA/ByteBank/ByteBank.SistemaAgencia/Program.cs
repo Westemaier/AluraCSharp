@@ -7,21 +7,48 @@ using System.Text.RegularExpressions;
 namespace ByteBank.SistemaAgencia
 {
     class Program
-    {
+    {       
         static void Main(string[] args)
+        {
+            ContaCorrente[] contas = new ContaCorrente[] 
+            {
+                new ContaCorrente(874, 4579787),
+                new ContaCorrente(874, 4456668),
+                new ContaCorrente(874, 7781438)
+            };               
+            for (int indice = 0; indice < contas.Length; indice++)
+            {
+                ContaCorrente contaAtual = contas[indice];
+                Console.WriteLine($"conta {indice} {contaAtual.Numero}");
+            }
+            Console.ReadLine();
+        }
+
+        static void testaArrayInt()
         {
             // ARRAY de inteiros com 5 posições!
 
-            int[] idades = new int[5];
+            int[] idades = null;
+            idades = new int[3];
             idades[0] = 15;
             idades[1] = 28;
             idades[2] = 35;
             idades[3] = 50;
             idades[4] = 28;
+            idades[5] = 60;
 
-            Console.WriteLine(idades[4]);
+            Console.WriteLine(idades.Length);
+            int acumulador = 0;
+            for (int indice = 0; indice < idades.Length; indice++)
+            {
+                int idade = idades[indice];
+                Console.WriteLine($"Acessando o Array idades no índice {indice}");
+                Console.WriteLine($"Valor de idades [{indice}] = {idade}");
+                acumulador += idade;
+            }
 
-            Console.ReadLine();
+            int media = acumulador / idades.Length;
+            Console.WriteLine($"Média de idade = {media}");
         }
 
         static void testaString()

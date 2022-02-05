@@ -29,7 +29,6 @@ namespace ByteBank.Modelos
                 {
                     return;
                 }
-
                 _saldo = value;
             }
         }
@@ -44,12 +43,10 @@ namespace ByteBank.Modelos
             {
                 throw new ArgumentException("O argumento agencia deve ser maior que 0.", nameof(agencia));
             }
-
             if (numero <= 0)
             {
                 throw new ArgumentException("O argumento numero deve ser maior que 0.", nameof(numero));
             }
-
             Agencia = agencia;
             Numero = numero;
 
@@ -68,21 +65,17 @@ namespace ByteBank.Modelos
             {
                 throw new ArgumentException("Valor inválido para o saque.", nameof(valor));
             }
-
             if (_saldo < valor)
             {
                 ContadorSaquesNaoPermitidos++;
                 throw new SaldoInsuficienteException(Saldo, valor);
             }
-
             _saldo -= valor;
         }
-
         public void Depositar(double valor)
         {
             _saldo += valor;
         }
-
         public void Transferir(double valor, ContaCorrente contaDestino)
         {
             if (valor < 0)
@@ -102,13 +95,15 @@ namespace ByteBank.Modelos
 
             contaDestino.Depositar(valor);
         }
-
-
-        public override string ToString()
+        public override bool Equals(object obj)
         {
-            return $"Número {Numero}, Agência {Agencia}, Saldo {Saldo}";
-           // return "Número " + Numero + ", Agencia " + Agencia + ", Saldo " + Saldo;
+            ContaCorrente outraConta = obj as ContaCorrente;
+            if(outraConta == null)
+            {
+                return false;
+            }
+            return Numero == outraConta.Numero && Agencia == outraConta.Agencia;
+            return base.Equals(obj);
         }
     }
-
 }

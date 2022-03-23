@@ -1,10 +1,7 @@
-﻿using System;
+﻿using ByteBank.Modelos;
+using ByteBank.SistemaAgencia.Extensões;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ByteBank.Modelos;
-using ByteBank.Modelos.Funcionarios;
 
 namespace ByteBank.SistemaAgencia
 {
@@ -21,8 +18,11 @@ namespace ByteBank.SistemaAgencia
             idades.Add(38);
             idades.Add(61);
 
-            idades.AddRange(new int[] { 1, 2, 3, 9 });
-            ListExtensoes.AdicionarVarios(idades, 1, 5687, 1897, 2000, 987);
+            // idades.AddRange(new int[] { 1, 2, 3, 9 });
+            // ListExtensoes.AdicionarVarios(idades, 1, 5687, 1897, 2000, 987);
+            idades.AdicionarVarios(5, 448, 7898, 4564);
+
+
             // idades.Remove(5); 
 
             for (int i = 0; i < idades.Count; i++)
@@ -53,14 +53,12 @@ namespace ByteBank.SistemaAgencia
         static int SomarVarios(params int[] numeros)
         {
             int acumulador = 0;
-            foreach(int numero in numeros)
+            foreach (int numero in numeros)
             {
                 acumulador += numero;
             }
             return acumulador;
         }
-
-
         static void TestaListaDeContaCorrente()
         {
             //ListaDeContaCorrente lista = new ListaDeContaCorrente();

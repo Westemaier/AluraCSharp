@@ -18,12 +18,9 @@ namespace ByteBank.SistemaAgencia
             idades.Add(38);
             idades.Add(61);
 
-            // idades.AddRange(new int[] { 1, 2, 3, 9 });
-            // ListExtensoes.AdicionarVarios(idades, 1, 5687, 1897, 2000, 987);
-            idades.AdicionarVarios(5, 448, 7898, 4564);
 
+            idades.AdicionarVarios(45, 89, 12);
 
-            // idades.Remove(5); 
 
             for (int i = 0; i < idades.Count; i++)
             {

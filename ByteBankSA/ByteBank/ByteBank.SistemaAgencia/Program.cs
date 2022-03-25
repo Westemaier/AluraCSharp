@@ -9,7 +9,22 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            List<int> idades = new List<int>();
+
+            var nomes = new List<string>()
+            {
+                "Luan",
+                "Leticia",
+                "Campana",
+                "Silva"
+            };
+            nomes.Sort();
+            foreach (var nome in nomes)
+            {
+                Console.WriteLine(nome);
+            }
+
+
+            var idades = new List<int>();
 
             idades.Add(1);
             idades.Add(5);
@@ -17,10 +32,9 @@ namespace ByteBank.SistemaAgencia
             idades.Add(25);
             idades.Add(38);
             idades.Add(61);
-
-
             idades.AdicionarVarios(45, 89, 12);
 
+            idades.Sort();
 
             for (int i = 0; i < idades.Count; i++)
             {
